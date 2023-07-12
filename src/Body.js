@@ -1,12 +1,8 @@
 import UserInfoForm from "./UserInfoForm";
 
-function Body() {
-  const handleSubmit = (data) => {
-    console.log(JSON.stringify(data));
-  };
-
+function Body({ handleSubmit }) {
   return (
-    <div>
+    <div className="container">
       Body
       <UserInfoForm handleSubmit={handleSubmit}></UserInfoForm>
     </div>
