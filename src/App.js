@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="container">
-      <Header username={userInfo.username} lastname={userInfo.lastname}></Header>
+      <Header firstname={userInfo.firstname} lastname={userInfo.lastname}></Header>
       <Body handleSubmit={handleSubmit}></Body>
       <Footer updateCount={userInfo.updateCount}></Footer>
     </div>
