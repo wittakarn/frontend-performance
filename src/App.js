@@ -1,30 +1,36 @@
-import { useState } from "react";
+import React from "react";
 import Body from "./Body";
 import Footer from "./Footer";
 import Header from "./Header";
 import "./App.css";
 
-function App() {
-  const [userInfo, setUserInfo] = useState({
-    firstname: "",
-    lastname: "",
-    updateCount: 0,
-  });
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      firstname: "",
+      lastname: "",
+      updateCount: 0,
+    }
+  }
 
-  const handleSubmit = (data) => {
-    setUserInfo({
-      ...data,
-      updateCount: userInfo.updateCount + 1,
+  handleSubmit = (data) => {
+    this.setState({
+      firstname: data.firstname,
+      lastname: data.lastname,
+      updateCount: this.state.updateCount + 1,
     });
   };
 
-  return (
-    <div className="container">
-      <Header firstname={userInfo.firstname} lastname={userInfo.lastname}></Header>
-      <Body handleSubmit={handleSubmit}></Body>
-      <Footer updateCount={userInfo.updateCount}></Footer>
-    </div>
-  );
+  render() {
+    return (
+      <div className="container">
+        <Header firstname={this.state.firstname} lastname={this.state.lastname}></Header>
+        <Body handleSubmit={this.handleSubmit}></Body>
+        <Footer updateCount={this.state.updateCount}></Footer>
+      </div>
+    );
+  }
 }
 
 export default App;

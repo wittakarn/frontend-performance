@@ -1,13 +1,17 @@
-import { memo } from "react";
-
-function HeaderComponent({ firstname, lastname }) {
-  return (
-    <div className="container">
-      Header
-      <div>Username: {firstname} {lastname}</div>
-    </div>
-  );
+import React from "react";
+class HeaderComponent extends React.PureComponent {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className="container">
+        Header
+        <div>Username: {this.props.firstname} {this.props.lastname}</div>
+      </div>
+    );
+  }
 }
 
-const Header = memo(HeaderComponent);
+const Header = HeaderComponent;
 export default Header;
